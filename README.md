@@ -8,7 +8,7 @@ To build, from the root directory (and already having installed the latest versi
 > nuget pack .\LogicMonitor.Cli
 
 ## Upload instructions
-You can then upload it to [https://nuget.org/upload](https://nuget.org/upload)
+You can then upload it to [https://www.nuget.org/packages/manage/upload](https://www.nuget.org/packages/manage/upload)
 
 ## Installation instructions
 To install the template, use:
