@@ -16,5 +16,7 @@ To install the template, use:
 
 To create a new project using the template, use:
 > dotnet new LogicMonitor
+
 or
+
 > dotnet new LogicMonitor --name MyProject.MyNameSpace
