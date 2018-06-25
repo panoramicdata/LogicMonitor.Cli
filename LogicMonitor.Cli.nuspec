@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>LogicMonitor.Cli</id>
+    <version>1.0.3</version>
+    <description>Creates a template LogicMonitor project for .NET Core 2.1.
+
+To install (or update) the template, type:
+
+	dotnet new -i LogicMonitor.Cli
+
+If you do not specify the namespace with --name, the folder name is used instead
+
+Once installed, go to an empty folder and type:
+
+	dotnet new logicmonitor [--name Project.Namespace]
+
+Then modify the appsettings.json file to include your LogicMonitor account, Access Id and Access Key.  After this, build and run with:
+
+	dotnet run
+
+This should provide some basic information about your LogicMonitor account to demonstrate a working project.
+
+	 </description>
+    <authors>David Bond</authors>
+    <owners>Panoramic Data Limited</owners>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+	 <iconUrl>http://www.logicmonitor.com/wp-content/uploads/2015/07/LM_Logo_Circle_Indigo_300px.png</iconUrl>
+	 <projectUrl>https://github.com/panoramicdata/LogicMonitor.Cli</projectUrl>
+	 <releaseNotes>
+	 	Updated documentation.
+	 </releaseNotes>
+	 <copyright>Panoramic Data Limited 2018</copyright>
+  </metadata>
+</package>
