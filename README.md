@@ -5,7 +5,7 @@ Nuget package for dotnet new logicmonitor
 ## Build instructions
 
 To build, from the root directory (and already having installed the latest version of nuget), type:
-> nuget pack .\LogicMonitor.Cli
+> nuget pack .\LogicMonitor.Cli.nuspec
 
 ## Upload instructions
 You can then upload it to [https://www.nuget.org/packages/manage/upload](https://www.nuget.org/packages/manage/upload)
