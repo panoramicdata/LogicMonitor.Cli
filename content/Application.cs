@@ -36,6 +36,7 @@ namespace LogicMonitor.Cli
 		/// Constructor
 		/// </summary>
 		/// <param name="options"></param>
+		/// <param name="logger"></param>
 		public Application(
 			IOptions<Configuration> options,
 			ILogger<Application> logger)
@@ -63,7 +64,7 @@ namespace LogicMonitor.Cli
 			_logger.LogInformation($"Application start.  Setting1 is set to {_config.Setting1}");
 
 			// Use asynchronous calls to _portalClient to interact with the portal
-			var accountSettings = await _portalClient.GetAsync<AccountSettings>();
+			var accountSettings = await _portalClient.GetAsync<AccountSettings>().ConfigureAwait(false);
 			_logger.LogInformation($"{_portalClient.AccountName} has {accountSettings.DeviceCount} devices.");
 
 			// Use GetAllAsync with filters to query down collectors
@@ -73,7 +74,7 @@ namespace LogicMonitor.Cli
 				{
 					new Eq<Collector>(nameof(Collector.IsDown), true)
 				}
-			});
+			}).ConfigureAwait(false);
 
 			// Write some information about down collectors
 			if (collectors.Count == 0)
@@ -84,7 +85,6 @@ namespace LogicMonitor.Cli
 			{
 				_logger.LogWarning($"The following collectors are down:\r\n{string.Join("\r\n", collectors.Select(c => $" - {c.Description}"))}");
 			}
-
 		}
 	}
 }

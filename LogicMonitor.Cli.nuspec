@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>LogicMonitor.Cli</id>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <description>Creates a template LogicMonitor project for .NET Core 2.1.
 
 To install (or update) the template, type:

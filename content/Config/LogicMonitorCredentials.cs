@@ -56,7 +56,7 @@ namespace LogicMonitor.Cli.Config
 			}
 
 			// Is everything OK?
-			if (!issues.Any())
+			if (issues.Count == 0)
 			{
 				// Yes - return
 				return;
