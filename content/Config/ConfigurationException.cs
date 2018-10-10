@@ -13,6 +13,10 @@ namespace LogicMonitor.Cli.Config
 	[Serializable]
 	internal class ConfigurationException : Exception
 	{
+		public ConfigurationException()
+		{
+		}
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -20,6 +24,18 @@ namespace LogicMonitor.Cli.Config
 		public ConfigurationException(List<ConfigurationIssue> issues)
 		{
 			Issues = issues.AsReadOnly();
+		}
+
+		public ConfigurationException(string message) : base(message)
+		{
+		}
+
+		public ConfigurationException(string message, Exception innerException) : base(message, innerException)
+		{
+		}
+
+		protected ConfigurationException(SerializationInfo info, StreamingContext context) : base(info, context)
+		{
 		}
 
 		/// <summary>

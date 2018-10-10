@@ -61,10 +61,7 @@ namespace LogicMonitor.Cli
 			)
 			.AddLogging()
 			.AddOptions()
-			.Configure<Config.Configuration>(c =>
-				{
-					configuration.GetSection("Configuration").Bind(c);
-				})
+			.Configure<Config.Configuration>(c => configuration.GetSection("Configuration").Bind(c))
 			.AddTransient<Application>();
 		}
 	}
