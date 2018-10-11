@@ -9,10 +9,7 @@ namespace LogicMonitor.Cli.Config
 		/// Constructor
 		/// </summary>
 		/// <param name="message">The message</param>
-		public ConfigurationIssue(string message)
-		{
-			this.Message = message;
-		}
+		public ConfigurationIssue(string message) => Message = message;
 
 		/// <summary>
 		/// The message

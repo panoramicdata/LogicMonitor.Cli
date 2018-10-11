@@ -42,17 +42,13 @@ namespace LogicMonitor.Cli
 			// Convert appsettingsFilename to absolute path for the ConfigurationBuilder to be able to find it
 			appsettingsFilename = Path.GetFullPath(appsettingsFilename);
 
-			var configurationRoot = new ConfigurationBuilder()
+			return new ConfigurationBuilder()
 				.SetBasePath(Directory.GetCurrentDirectory())
 				.AddJsonFile(appsettingsFilename, false, false)
-				//.AddCommandLine(args) // Can't do this and be able to specify the config file for the moment
 				.Build();
-
-			return configurationRoot;
 		}
 
-		private static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
-		{
+		private static void ConfigureServices(IServiceCollection services, IConfiguration configuration) =>
 			// Add logging
 			services.AddSingleton(
 				new LoggerFactory()
@@ -63,6 +59,5 @@ namespace LogicMonitor.Cli
 			.AddOptions()
 			.Configure<Config.Configuration>(c => configuration.GetSection("Configuration").Bind(c))
 			.AddTransient<Application>();
-		}
 	}
 }
