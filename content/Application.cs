@@ -9,6 +9,7 @@ using LogicMonitor.Cli.Config;
 using LogicMonitor.Api.Filters;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Threading;
 
 namespace LogicMonitor.Cli
 {
@@ -36,10 +37,10 @@ namespace LogicMonitor.Cli
 		/// Constructor
 		/// </summary>
 		/// <param name="options"></param>
-		/// <param name="logger"></param>
+		/// <param name="loggerFactory"></param>
 		public Application(
 			IOptions<Configuration> options,
-			ILogger<Application> logger)
+			ILoggerFactory loggerFactory)
 		{
 			// Store the config
 			_config = options.Value;
@@ -47,24 +48,27 @@ namespace LogicMonitor.Cli
 			// Validate the credentials
 			_config.LogicMonitorCredentials.Validate();
 
+			// Create a logger
+			_logger = loggerFactory.CreateLogger<Application>();
+
 			// Create a portal client
 			_portalClient = new PortalClient(
 				_config.LogicMonitorCredentials.Account,
 				_config.LogicMonitorCredentials.AccessId,
-				_config.LogicMonitorCredentials.AccessKey
+				_config.LogicMonitorCredentials.AccessKey,
+				_logger
 			);
-
-			// Create a logger
-			_logger = logger;
 		}
 
-		public async Task Run()
+		public async Task RunAsync(CancellationToken cancellationToken)
 		{
 			// Use _logger for logging
 			_logger.LogInformation($"Application start.  Setting1 is set to {_config.Setting1}");
 
 			// Use asynchronous calls to _portalClient to interact with the portal
-			var accountSettings = await _portalClient.GetAsync<AccountSettings>().ConfigureAwait(false);
+			var accountSettings = await _portalClient
+				.GetAsync<AccountSettings>(cancellationToken)
+				.ConfigureAwait(false);
 			_logger.LogInformation($"{_portalClient.AccountName} has {accountSettings.DeviceCount} devices.");
 
 			// Use GetAllAsync with filters to query down collectors
@@ -74,7 +78,7 @@ namespace LogicMonitor.Cli
 				{
 					new Eq<Collector>(nameof(Collector.IsDown), true)
 				}
-			}).ConfigureAwait(false);
+			}, cancellationToken).ConfigureAwait(false);
 
 			// Write some information about down collectors
 			if (collectors.Count == 0)

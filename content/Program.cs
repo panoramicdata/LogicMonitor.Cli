@@ -1,14 +1,18 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using LogicMonitor.Cli.Config;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LogicMonitor.Cli
 {
 	public static class Program
 	{
+		public static CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
 		public static async Task<int> Main(string[] args)
 		{
 			try
@@ -20,14 +24,36 @@ namespace LogicMonitor.Cli
 				var serviceProvider = serviceCollection.BuildServiceProvider();
 
 				var application = serviceProvider.GetService<Application>();
-				await application.Run().ConfigureAwait(false);
-				return 0;
+
+				// Establish an event handler to process key press events.
+				Console.CancelKeyPress += CancelEventHandler;
+
+				await application
+					.RunAsync(_cancellationTokenSource.Token)
+					.ConfigureAwait(false);
+				return (int)ExitCode.Ok;
+			}
+			catch (OperationCanceledException)
+			{
+				// Cleanly handled.
+				Console.WriteLine("Quitting.");
+				return (int)ExitCode.Cancelled;
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine(e.ToString());
-				return 1;
+				return (int)ExitCode.UnhandledException;
 			}
+		}
+
+		private static void CancelEventHandler(object sender, ConsoleCancelEventArgs args)
+		{
+			Console.WriteLine($"Key pressed: {args.SpecialKey}");
+
+			// Set the Cancel property to true to prevent the process from terminating.
+			args.Cancel = true;
+
+			_cancellationTokenSource?.Cancel();
 		}
 
 		private static IConfigurationRoot BuildConfig(string[] args)
@@ -50,14 +76,14 @@ namespace LogicMonitor.Cli
 
 		private static void ConfigureServices(IServiceCollection services, IConfiguration configuration) =>
 			// Add logging
-			services.AddSingleton(
-				new LoggerFactory()
-					.AddConsole()
-					.AddDebug(LogLevel.Debug)
-			)
-			.AddLogging()
+			services
+			.AddLogging(b =>
+				{
+					b.AddConsole();
+					b.AddDebug();
+				})
 			.AddOptions()
-			.Configure<Config.Configuration>(c => configuration.GetSection("Configuration").Bind(c))
+			.Configure<Configuration>(c => configuration.GetSection("Configuration").Bind(c))
 			.AddTransient<Application>();
 	}
 }
