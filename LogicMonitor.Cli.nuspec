@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>LogicMonitor.Cli</id>
-    <version>1.0.6</version>
-    <description>Creates a template LogicMonitor project for .NET Core 2.1.
+    <version>3.1.0</version>
+    <description>Creates a template LogicMonitor project for .NET Core 3.1.
 
 To install (or update) the template, type:
 
@@ -27,11 +27,14 @@ This should provide some basic information about your LogicMonitor account to de
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
-	 <iconUrl>http://www.logicmonitor.com/wp-content/uploads/2015/07/LM_Logo_Circle_Indigo_300px.png</iconUrl>
+	 <icon>Icon.png</icon>
 	 <projectUrl>https://github.com/panoramicdata/LogicMonitor.Cli</projectUrl>
 	 <releaseNotes>
-	 	Updated documentation.
+	 	Moved to .Net Core 3.1
+		Bumped versioning to match .NET Core versioning
+		Added Ctrl+C support
+		Improved best practices throughout
 	 </releaseNotes>
-	 <copyright>Panoramic Data Limited 2018</copyright>
+	 <copyright>Panoramic Data Limited 2020</copyright>
   </metadata>
 </package>
