@@ -11,7 +11,7 @@ namespace LogicMonitor.Cli
 {
 	public static class Program
 	{
-		public static CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+		private static readonly CancellationTokenSource _cancellationTokenSource = new();
 
 		public static async Task<int> Main(string[] args)
 		{
@@ -28,7 +28,7 @@ namespace LogicMonitor.Cli
 				// Establish an event handler to process key press events.
 				Console.CancelKeyPress += CancelEventHandler;
 
-				await application
+				await (application ?? throw new ConfigurationException("Could not create an application.  Check dependency injection."))
 					.RunAsync(_cancellationTokenSource.Token)
 					.ConfigureAwait(false);
 				return (int)ExitCode.Ok;
@@ -46,7 +46,7 @@ namespace LogicMonitor.Cli
 			}
 		}
 
-		private static void CancelEventHandler(object sender, ConsoleCancelEventArgs args)
+		private static void CancelEventHandler(object? sender, ConsoleCancelEventArgs args)
 		{
 			Console.WriteLine($"Key pressed: {args.SpecialKey}");
 
