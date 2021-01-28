@@ -34,9 +34,8 @@ This should provide some basic information about your LogicMonitor account to de
 Moved to .Net Core 5.0
 Improved best practices throughout
 		</releaseNotes>
-		<tags>LogicMonitor CLI
-			<tags>
-				<repository type="git" url="https://github.com/panoramicdata/LogicMonitor.Cli.git" branch="main" />
-				<copyright>Panoramic Data Limited 2021</copyright>
-			</metadata>
-		</package>
+		<tags>LogicMonitor CLI</tags>
+		<repository type="git" url="https://github.com/panoramicdata/LogicMonitor.Cli.git" branch="main" />
+		<copyright>Panoramic Data Limited 2021</copyright>
+	</metadata>
+</package>
