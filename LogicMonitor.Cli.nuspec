@@ -36,7 +36,7 @@ Improved best practices throughout
 		</releaseNotes>
 		<tags>LogicMonitor CLI
 			<tags>
-				<repository type="git" url="https://github.com/panoramicdata/LogicMonitor.Cli.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+				<repository type="git" url="https://github.com/panoramicdata/LogicMonitor.Cli.git" branch="main" />
 				<copyright>Panoramic Data Limited 2021</copyright>
 			</metadata>
 		</package>
