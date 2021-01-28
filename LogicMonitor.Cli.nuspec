@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
-  <metadata>
-    <id>LogicMonitor.Cli</id>
-    <version>3.1.0</version>
-    <description>Creates a template LogicMonitor project for .NET Core 3.1.
+	<metadata>
+		<id>LogicMonitor.Cli</id>
+		<title>LogicMonitor.Cli</title>
+		<license type="expression">MIT</license>
+		<description>Creates a template LogicMonitor project for .NET Core 5.0.
 
 To install (or update) the template, type:
 
@@ -22,19 +23,20 @@ Then modify the appsettings.json file to include your LogicMonitor account, Acce
 This should provide some basic information about your LogicMonitor account to demonstrate a working project.
 
 	 </description>
-    <authors>David Bond</authors>
-    <owners>Panoramic Data Limited</owners>
-    <packageTypes>
-      <packageType name="Template" />
-    </packageTypes>
-	 <icon>Icon.png</icon>
-	 <projectUrl>https://github.com/panoramicdata/LogicMonitor.Cli</projectUrl>
-	 <releaseNotes>
-	 	Moved to .Net Core 3.1
-		Bumped versioning to match .NET Core versioning
-		Added Ctrl+C support
-		Improved best practices throughout
-	 </releaseNotes>
-	 <copyright>Panoramic Data Limited 2020</copyright>
-  </metadata>
-</package>
+		<authors>David Bond</authors>
+		<owners>Panoramic Data Limited</owners>
+		<packageTypes>
+			<packageType name="Template" />
+		</packageTypes>
+		<icon>Icon.png</icon>
+		<projectUrl>https://github.com/panoramicdata/LogicMonitor.Cli</projectUrl>
+		<releaseNotes>
+Moved to .Net Core 5.0
+Improved best practices throughout
+		</releaseNotes>
+		<tags>LogicMonitor CLI
+			<tags>
+				<repository type="git" url="https://github.com/panoramicdata/LogicMonitor.Cli.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+				<copyright>Panoramic Data Limited 2021</copyright>
+			</metadata>
+		</package>
