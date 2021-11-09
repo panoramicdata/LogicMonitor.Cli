@@ -1,89 +1,39 @@
 ﻿using LogicMonitor.Cli.Config;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
+using Serilog;
+using Serilog.Debugging;
 
 namespace LogicMonitor.Cli
 {
-	public static class Program
+	public class Program
 	{
-		private static readonly CancellationTokenSource _cancellationTokenSource = new();
-
-		public static async Task<int> Main(string[] args)
+		public static async Task Main(string[] args)
 		{
+			SelfLog.Enable(msg => Console.Error.WriteLine(msg));
+
 			try
 			{
-				// Create the service collection passing in the configuration
-				var serviceCollection = new ServiceCollection();
-				var configurationRoot = BuildConfig(args);
-				ConfigureServices(serviceCollection, configurationRoot);
-				var serviceProvider = serviceCollection.BuildServiceProvider();
-
-				var application = serviceProvider.GetService<Application>();
-
-				// Establish an event handler to process key press events.
-				Console.CancelKeyPress += CancelEventHandler;
-
-				await (application ?? throw new ConfigurationException("Could not create an application.  Check dependency injection."))
-					.RunAsync(_cancellationTokenSource.Token)
-					.ConfigureAwait(false);
-				return (int)ExitCode.Ok;
+				await Host.CreateDefaultBuilder(args)
+					.ConfigureServices((context, services) =>
+					{
+						services
+							.AddHostedService<Application>()
+							.AddOptions()
+							.Configure<Configuration>(context.Configuration.GetSection("Configuration"))
+							;
+					})
+					.UseSerilog((context, _, config) => config.ReadFrom.Configuration(context.Configuration).Enrich.FromLogContext())
+					.Build()
+					.RunAsync();
 			}
-			catch (OperationCanceledException)
+			catch (Exception ex)
 			{
-				// Cleanly handled.
-				Console.WriteLine("Quitting.");
-				return (int)ExitCode.Cancelled;
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine(e.ToString());
-				return (int)ExitCode.UnhandledException;
+				Console.Error.WriteLine(ex.ToString());
+				var dumpPath = Path.GetTempPath();
+				var dumpFile = $"{ThisAssembly.AssemblyName}-Error-{Guid.NewGuid()}.txt";
+				var dumpFileFullPath = Path.Combine(dumpPath, dumpFile);
+				File.WriteAllText(dumpFileFullPath, ex.ToString());
+				Console.WriteLine($"Exception written to file: {dumpFileFullPath}");
 			}
 		}
-
-		private static void CancelEventHandler(object? sender, ConsoleCancelEventArgs args)
-		{
-			Console.WriteLine($"Key pressed: {args.SpecialKey}");
-
-			// Set the Cancel property to true to prevent the process from terminating.
-			args.Cancel = true;
-
-			_cancellationTokenSource?.Cancel();
-		}
-
-		private static IConfigurationRoot BuildConfig(string[] args)
-		{
-			var appsettingsFilename = "appsettings.json";
-			// If specifying any command line arguments, the first argument must be the path to the appsettings.json file ConfigFile: xxx
-			if (args.Length > 0)
-			{
-				appsettingsFilename = args[0];
-			}
-
-			// Convert appsettingsFilename to absolute path for the ConfigurationBuilder to be able to find it
-			appsettingsFilename = Path.GetFullPath(appsettingsFilename);
-
-			return new ConfigurationBuilder()
-				.SetBasePath(Directory.GetCurrentDirectory())
-				.AddJsonFile(appsettingsFilename, false, false)
-				.Build();
-		}
-
-		private static void ConfigureServices(IServiceCollection services, IConfiguration configuration) =>
-			// Add logging
-			services
-			.AddLogging(b =>
-				{
-					b.AddConsole();
-					b.AddDebug();
-				})
-			.AddOptions()
-			.Configure<Configuration>(c => configuration.GetSection("Configuration").Bind(c))
-			.AddTransient<Application>();
 	}
 }

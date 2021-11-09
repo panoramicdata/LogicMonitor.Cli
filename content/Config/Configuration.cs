@@ -1,5 +1,4 @@
-using System;
-using System.Threading.Tasks;
+using LogicMonitor.Api;
 
 namespace LogicMonitor.Cli.Config
 {
@@ -12,12 +11,12 @@ namespace LogicMonitor.Cli.Config
 		/// <summary>
 		/// LogicMonitor credentials
 		/// </summary>
-		public LogicMonitorCredentials LogicMonitorCredentials { get; set; }
+		public LogicMonitorClientOptions LogicMonitorClientOptions { get; set; } = new();
 
 		/// <summary>
 		/// DELETE THIS!
 		/// Provided as a first example
 		/// </summary>
-		public string Setting1 { get; set; }
+		public string Setting1 { get; set; } = string.Empty;
 	}
 }
