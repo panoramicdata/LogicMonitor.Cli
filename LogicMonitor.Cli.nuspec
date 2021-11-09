@@ -4,8 +4,8 @@
 		<id>LogicMonitor.Cli</id>
 		<title>LogicMonitor.Cli</title>
 		<license type="expression">MIT</license>
-		<version>5.0.0</version>
-		<description>Creates a template LogicMonitor project for .NET Core 5.0.
+		<version>6.0.0</version>
+		<description>Creates a template LogicMonitor project for .NET Core 6.0.
 
 To install (or update) the template, type:
 
@@ -32,7 +32,7 @@ This should provide some basic information about your LogicMonitor account to de
 		<icon>Icon.png</icon>
 		<projectUrl>https://github.com/panoramicdata/LogicMonitor.Cli</projectUrl>
 		<releaseNotes>
-Moved to .Net Core 5.0
+Moved to .Net Core 6.0
 Improved best practices throughout
 		</releaseNotes>
 		<tags>LogicMonitor CLI</tags>
