@@ -1,22 +1,21 @@
-namespace LogicMonitor.Cli.Config
+namespace LogicMonitor.Cli.Config;
+
+/// <summary>
+/// A configuration issue
+/// </summary>
+internal class ConfigurationIssue
 {
 	/// <summary>
-	/// A configuration issue
+	/// Constructor
 	/// </summary>
-	internal class ConfigurationIssue
+	/// <param name="message">The message</param>
+	public ConfigurationIssue(string message)
 	{
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		/// <param name="message">The message</param>
-		public ConfigurationIssue(string message)
-		{
-			Message = message;
-		}
-
-		/// <summary>
-		/// The message
-		/// </summary>
-		public string Message { get; set; }
+		Message = message;
 	}
+
+	/// <summary>
+	/// The message
+	/// </summary>
+	public string Message { get; set; }
 }

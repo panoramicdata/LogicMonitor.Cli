@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
@@ -15,16 +15,16 @@
 
 	<ItemGroup>
 		<PackageReference Include="LogicMonitor.Api" Version="2.*" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="3.4.244">
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.*" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="3.*">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Serilog" Version="2.10.0" />
-		<PackageReference Include="Serilog.Extensions.Hosting" Version="4.2.0" />
-		<PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
-		<PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
-		<PackageReference Include="System.Text.Json" Version="6.0.0" />
+		<PackageReference Include="Serilog" Version="2.*" />
+		<PackageReference Include="Serilog.Extensions.Hosting" Version="5.*" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="3.*" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="4.*" />
+		<PackageReference Include="System.Text.Json" Version="7.*" />
 	</ItemGroup>
 
 	<ItemGroup>
