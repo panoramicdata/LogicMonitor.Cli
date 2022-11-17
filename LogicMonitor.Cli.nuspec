@@ -4,8 +4,8 @@
 		<id>LogicMonitor.Cli</id>
 		<title>LogicMonitor.Cli</title>
 		<license type="expression">MIT</license>
-		<version>6.0.2</version>
-		<description>Creates a template LogicMonitor project for .NET 6.0.
+		<version>7.0.0</version>
+		<description>Creates a template LogicMonitor project for .NET 7.0.
 
 To install (or update) the template, type:
 
@@ -36,6 +36,6 @@ Improved best practices throughout
 		</releaseNotes>
 		<tags>LogicMonitor CLI</tags>
 		<repository type="git" url="https://github.com/panoramicdata/LogicMonitor.Cli.git" branch="main" />
-		<copyright>Panoramic Data Limited 2021</copyright>
+		<copyright>Panoramic Data Limited 2021,2022</copyright>
 	</metadata>
 </package>
