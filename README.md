@@ -12,11 +12,18 @@ You can then upload it to [https://www.nuget.org/packages/manage/upload](https:/
 
 ## Installation instructions
 To install the template, use:
-> dotnet new install LogicMonitor.Cli
+``` powershell
+dotnet new install LogicMonitor.Cli
+```
 
 To create a new project using the template, use:
-> dotnet new logicmonitor
+
+``` powershell
+dotnet new logicmonitor --name MyProject.MyNameSpace
+```
 
 or
 
-> dotnet new logicmonitor --name MyProject.MyNameSpace
+``` powershell
+dotnet new logicmonitor
+```
