@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="LogicMonitor.Api" Version="2.*" />
+		<PackageReference Include="LogicMonitor.Api" Version="3.*" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.*" />
 		<PackageReference Include="Nerdbank.GitVersioning" Version="3.*">
 			<PrivateAssets>all</PrivateAssets>
