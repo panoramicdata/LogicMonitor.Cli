@@ -9,7 +9,7 @@
 
 To install (or update) the template, type:
 
-	dotnet new -i LogicMonitor.Cli
+	dotnet new install LogicMonitor.Cli
 
 If you do not specify the namespace with --name, the folder name is used instead
 
