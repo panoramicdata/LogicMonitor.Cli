@@ -39,6 +39,7 @@ internal class Application : BackgroundService
 	{
 		// Store the config
 		_config = options.Value;
+		_config.Validate();
 
 		_config.LogicMonitorClientOptions.Logger = loggerFactory.CreateLogger<LogicMonitorClient>();
 
@@ -67,10 +68,10 @@ internal class Application : BackgroundService
 			// Use GetAllAsync with filters to query down collectors
 			var collectors = await logicMonitorClient.GetAllAsync(new Filter<Collector>
 			{
-				FilterItems = new List<FilterItem<Collector>>
-				{
+				FilterItems =
+				[
 					new Eq<Collector>(nameof(Collector.IsDown), true)
-				}
+				]
 			}, cancellationToken).ConfigureAwait(false);
 
 			// Write some information about down collectors
@@ -82,6 +83,13 @@ internal class Application : BackgroundService
 			{
 				_logger.LogWarning("The following collectors are down:\r\n{downCollectorString}", string.Join("\r\n", collectors.Select(c => $" - {c.Description}")));
 			}
+		}
+		catch (Exception ex)
+		{
+			_logger.LogError(
+				ex,
+				"An error occurred: {Message}",
+				ex.Message);
 		}
 		finally
 		{

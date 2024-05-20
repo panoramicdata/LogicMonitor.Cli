@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
 	<PropertyGroup>
-		<TargetFramework>net7.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
@@ -14,6 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="11.9.1" />
 		<PackageReference Include="LogicMonitor.Api" Version="3.*" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.*" />
 		<PackageReference Include="Nerdbank.GitVersioning" Version="3.*">
@@ -24,7 +25,7 @@
 		<PackageReference Include="Serilog.Extensions.Hosting" Version="5.*" />
 		<PackageReference Include="Serilog.Settings.Configuration" Version="3.*" />
 		<PackageReference Include="Serilog.Sinks.Console" Version="4.*" />
-		<PackageReference Include="System.Text.Json" Version="7.*" />
+		<PackageReference Include="System.Text.Json" Version="8.*" />
 	</ItemGroup>
 
 	<ItemGroup>
