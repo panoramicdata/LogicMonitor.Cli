@@ -63,7 +63,7 @@ internal class Application : BackgroundService
 			var accountSettings = await logicMonitorClient
 				.GetAsync<AccountSettings>(cancellationToken)
 				.ConfigureAwait(false);
-			_logger.LogInformation("{accountName} has {deviceCount} devices.", logicMonitorClient.AccountName, accountSettings.DeviceCount);
+			_logger.LogInformation("{accountName} has {resourceCount} resources.", logicMonitorClient.AccountName, accountSettings.ResourceCount);
 
 			// Use GetAllAsync with filters to query down collectors
 			var collectors = await logicMonitorClient.GetAllAsync(new Filter<Collector>
