@@ -6,6 +6,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <ItemGroup>
     <None Include="appsettings.json">
