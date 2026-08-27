@@ -8,6 +8,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="appsettings.json">
@@ -15,7 +17,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.9.1" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="LogicMonitor.Api" Version="3.*" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.*" />
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.*">
