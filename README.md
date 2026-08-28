@@ -1,3 +1,7 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/grade/LogicMonitor.Cli)](https://app.codacy.com/gh/panoramicdata/LogicMonitor.Cli/dashboard)
+
 # LogicMonitor.Cli
 
 Nuget package for dotnet new logicmonitor
