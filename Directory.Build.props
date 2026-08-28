@@ -1,5 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
     <Copyright>Copyright © Panoramic Data Limited</Copyright>
+    <Authors>Panoramic Data Limited</Authors>
+    <Company>Panoramic Data Limited</Company>
   </PropertyGroup>
 </Project>
