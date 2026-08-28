@@ -4,5 +4,6 @@
     <Copyright>Copyright © Panoramic Data Limited</Copyright>
     <Authors>Panoramic Data Limited</Authors>
     <Company>Panoramic Data Limited</Company>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 </Project>
