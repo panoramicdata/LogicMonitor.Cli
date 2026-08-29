@@ -24,7 +24,7 @@
     <PackageReference Include="Serilog.Extensions.Hosting" Version="5.*" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.*" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.*" />
-    <PackageReference Include="System.Text.Json" Version="8.*" />
+    <PackageReference Include="System.Text.Json" Version="10.*" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="appsettings.json">
