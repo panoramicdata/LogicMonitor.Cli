@@ -1,0 +1,16 @@
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+csharp_style_namespace_declarations = file_scoped:error
+csharp_using_directive_placement = outside_namespace:error
+
+[*.{xml,csproj,props,targets}]
+indent_style = tab
