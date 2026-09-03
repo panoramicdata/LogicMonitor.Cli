@@ -13,5 +13,6 @@
     <PackageVersion Include="Serilog.Settings.Configuration" Version="3.*" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="4.*" />
     <PackageVersion Include="System.Text.Json" Version="8.*" />
+    <PackageVersion Include="xunit.v3" Version="4.0.0" />
   </ItemGroup>
 </Project>
