@@ -10,5 +10,8 @@
     <File Path="README.md" />
     <File Path="SECURITY.md" />
     <File Path="version.json" />
+    <File Path=".editorconfig" />
+    <File Path="Directory.Packages.props" />
+    <File Path="Publish.ps1" />
   </Folder>
 </Solution>
