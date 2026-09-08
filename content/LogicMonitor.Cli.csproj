@@ -8,6 +8,8 @@
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
   </PropertyGroup>
   <PropertyGroup>
+    <!-- Microsoft.NET.Sdk.Worker defaults IsPackable to false; this project is packed as a dotnet-new template. -->
+    <IsPackable>true</IsPackable>
     <PackageId>LogicMonitor.Cli</PackageId>
     <Title>LogicMonitor.Cli</Title>
     <Description>Creates a template LogicMonitor project for .NET.
