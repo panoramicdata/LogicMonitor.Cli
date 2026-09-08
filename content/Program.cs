@@ -4,8 +4,15 @@ using Serilog.Debugging;
 
 namespace LogicMonitor.Cli;
 
+/// <summary>
+/// The application entry point
+/// </summary>
 public static class Program
 {
+	/// <summary>
+	/// The application entry point
+	/// </summary>
+	/// <param name="args">Command-line arguments</param>
 	public static async Task Main(string[] args)
 	{
 		SelfLog.Enable(msg => Console.Error.WriteLine(msg));

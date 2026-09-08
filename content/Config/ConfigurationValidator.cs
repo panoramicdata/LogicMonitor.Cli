@@ -2,8 +2,14 @@ using FluentValidation;
 
 namespace LogicMonitor.Cli.Config;
 
+/// <summary>
+/// Validates a <see cref="Configuration"/>
+/// </summary>
 public class ConfigurationValidator : AbstractValidator<Configuration>
 {
+	/// <summary>
+	/// Constructor
+	/// </summary>
 	public ConfigurationValidator()
 	{
 		RuleFor(x => x.LogicMonitorClientOptions)

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Solution>
   <Project Path="content/LogicMonitor.Cli.csproj" />
+  <Project Path="Tests/LogicMonitor.Cli.Tests/LogicMonitor.Cli.Tests.csproj" />
   <Folder Name="/Solution Items/">
     <File Path=".gitignore" />
     <File Path="CONTRIBUTING.md" />

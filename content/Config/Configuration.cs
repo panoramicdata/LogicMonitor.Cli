@@ -20,6 +20,9 @@ public class Configuration
 	/// </summary>
 	public required string Setting1 { get; set; } = string.Empty;
 
+	/// <summary>
+	/// Validates the configuration, throwing a <see cref="ValidationException"/> if it is invalid
+	/// </summary>
 	public void Validate()
 	{
 		var validator = new ConfigurationValidator();

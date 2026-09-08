@@ -8,11 +8,14 @@ Nuget package for dotnet new logicmonitor
 
 ## Build instructions
 
-To build, from the root directory (and already having installed the latest version of nuget), type:
-> nuget pack .\LogicMonitor.Cli.nuspec -NoDefaultExcludes -Exclude .vs -Exclude .suo
+To build, from the root directory, type:
+> dotnet pack content\LogicMonitor.Cli.csproj --configuration Release
 
-## Upload instructions
-You can then upload it to [https://www.nuget.org/packages/manage/upload](https://www.nuget.org/packages/manage/upload)
+The package version is derived automatically from git history by [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning) (see `version.json`).
+
+## Publishing
+
+Run `.\Publish.ps1` from the root directory. It tags the current commit with the Nerdbank.GitVersioning-computed version and pushes the tag, which triggers the CI workflow to build, pack and push the package to nuget.org.
 
 ## Installation instructions
 To install the template, use:

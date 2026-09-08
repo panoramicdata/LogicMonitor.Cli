@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "content/LogicMonitor.Cli.csproj": {
+      "packagingTreatment": "Include"
+    }
+  }
+}

@@ -30,8 +30,9 @@ internal class Application : BackgroundService
 	/// <summary>
 	/// Constructor
 	/// </summary>
-	/// <param name="options"></param>
-	/// <param name="loggerFactory"></param>
+	/// <param name="options">The application configuration</param>
+	/// <param name="loggerFactory">The logger factory</param>
+	/// <param name="lifetime">The application lifetime</param>
 	public Application(
 		IOptions<Configuration> options,
 		ILoggerFactory loggerFactory,

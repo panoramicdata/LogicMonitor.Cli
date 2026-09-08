@@ -1,3 +1,4 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Interactive console script: status messages are colored terminal output, not pipeline data.')]
 param(
 	# Skips waiting for the release run. The tag is still pushed, but nothing confirms a package
 	# reached nuget.org — use it only if you are checking the run yourself.

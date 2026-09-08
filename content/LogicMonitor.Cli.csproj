@@ -7,10 +7,41 @@
     <Nullable>enable</Nullable>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
   </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>LogicMonitor.Cli</PackageId>
+    <Title>LogicMonitor.Cli</Title>
+    <Description>Creates a template LogicMonitor project for .NET.
+
+To install (or update) the template, type:
+
+	dotnet new install LogicMonitor.Cli
+
+If you do not specify the namespace with --name, the folder name is used instead
+
+Once installed, go to an empty folder and type:
+
+	dotnet new logicmonitor [--name Project.Namespace]
+
+Then modify the appsettings.json file to include your LogicMonitor account, Access Id and Access Key.  After this, build and run with:
+
+	dotnet run
+
+This should provide some basic information about your LogicMonitor account to demonstrate a working project.</Description>
+    <PackageType>Template</PackageType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>Icon.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/panoramicdata/LogicMonitor.Cli</PackageProjectUrl>
+    <PackageTags>LogicMonitor;CLI</PackageTags>
+    <RepositoryUrl>https://github.com/panoramicdata/LogicMonitor.Cli.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="..\Icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation" />
@@ -24,7 +55,6 @@
     <PackageReference Include="Serilog.Extensions.Hosting" />
     <PackageReference Include="Serilog.Settings.Configuration" />
     <PackageReference Include="Serilog.Sinks.Console" />
-    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="appsettings.json">
