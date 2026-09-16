@@ -6,6 +6,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
   <PropertyGroup>
     <!-- Microsoft.NET.Sdk.Worker defaults IsPackable to false; this project is packed as a dotnet-new template. -->
