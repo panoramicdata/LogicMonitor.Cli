@@ -8,6 +8,7 @@
     <NeutralResourcesLanguage>en</NeutralResourcesLanguage>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup>
     <!-- Microsoft.NET.Sdk.Worker defaults IsPackable to false; this project is packed as a dotnet-new template. -->
