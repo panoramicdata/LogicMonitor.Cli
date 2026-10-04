@@ -1,3 +1,5 @@
+[![NuGet version](https://img.shields.io/nuget/v/LogicMonitor.Cli.svg)](https://www.nuget.org/packages/LogicMonitor.Cli/)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/grade/LogicMonitor.Cli)](https://app.codacy.com/gh/panoramicdata/LogicMonitor.Cli/dashboard)
