@@ -98,12 +98,12 @@ jobs:
     # The test project is an xunit v3 Microsoft.Testing.Platform application, so coverage is
     # collected by running it directly (Microsoft.Testing.Extensions.CodeCoverage) rather than
     # through "dotnet test". On Linux the executable has no ".exe" extension. The report is written
-    # to bin/Debug/net10.0/TestResults/coverage.cobertura.xml.
+    # to bin/Debug/net11.0/TestResults/coverage.cobertura.xml.
     #
     # CI runs every test: the LogicMonitor.Cli tests are pure unit tests that need no credentials,
     # so no filter is applied.
     - name: Run tests with coverage
-      working-directory: Tests/LogicMonitor.Cli.Tests/bin/Debug/net10.0
+      working-directory: Tests/LogicMonitor.Cli.Tests/bin/Debug/net11.0
       run: >-
         ./LogicMonitor.Cli.Tests
         --coverage
@@ -118,7 +118,7 @@ jobs:
       uses: codacy/codacy-coverage-reporter-action@v1
       with:
         project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        coverage-reports: Tests/LogicMonitor.Cli.Tests/bin/Debug/net10.0/TestResults/coverage.cobertura.xml
+        coverage-reports: Tests/LogicMonitor.Cli.Tests/bin/Debug/net11.0/TestResults/coverage.cobertura.xml
 
     - name: Upload coverage artifact
       if: always()
@@ -126,5 +126,5 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: coverage
-        path: Tests/LogicMonitor.Cli.Tests/bin/Debug/net10.0/TestResults/coverage.cobertura.xml
+        path: Tests/LogicMonitor.Cli.Tests/bin/Debug/net11.0/TestResults/coverage.cobertura.xml
         retention-days: 7
