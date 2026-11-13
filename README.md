@@ -8,6 +8,8 @@
 
 Nuget package for dotnet new logicmonitor
 
+Supports .NET 11.0.
+
 ## Build instructions
 
 To build, from the root directory, type:
