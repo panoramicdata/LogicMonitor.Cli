@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/grade/LogicMonitor.Cli)](https://app.codacy.com/gh/panoramicdata/LogicMonitor.Cli/dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/268e327fe12040babcb90c3fd21ef3b0)](https://app.codacy.com/gh/panoramicdata/LogicMonitor.Cli/dashboard)
 
 # LogicMonitor.Cli
 
